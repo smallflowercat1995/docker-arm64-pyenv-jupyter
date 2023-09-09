@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  debian-pyenv-app:
+    build: .
+    image: smallflowercat1995/debian-pyenv:latest
+    container_name: debian-pyenv-latest-container
+    volumes:
+      - ../install-jupyter/package:/root/export_tar_gz
+    networks:
+        - app_net
+networks:
+  app_net:
+    driver: bridge

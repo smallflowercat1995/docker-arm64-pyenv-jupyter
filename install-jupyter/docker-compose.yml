@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  debian-jupyter-app:
+    build: .
+    image: smallflowercat1995/debian-jupyter:latest
+    container_name: debian-jupyter-latest-container
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - /mnt/sda1/docker-container/jupyter/notebook:/notebook
+      - /mnt/sda1/docker-container/jupyter/.jupyter:/root/.jupyter/
+    networks:
+        - app_net
+
+networks:
+  app_net:
+    driver: bridge
