@@ -4,17 +4,20 @@
 最终镜像：<a href="https://hub.docker.com/r/smallflowercat1995/debian-jupyter" target="_blank">https://hub.docker.com/r/smallflowercat1995/debian-jupyter</a>  
 ## 描述
 1.为了实现 actions workflow 自动化更新 pyenv 源码，需要添加 `GITHUB_TOKEN` 环境变量，这个是访问 GitHub API 的令牌，可以在 GitHub 主页，点击个人头像，Settings -> Developer settings -> Personal access tokens ，设置名字为 GITHUB_TOKEN 接着要勾选权限，勾选repo、admin:repo_hook和workflow即可，最后点击Generate token，如图所示  
-<img width="783" alt="截屏2023-09-10 02 05 43" src="https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/6c56921f-edc8-4f81-acfa-c70d2a790441">
+![account_token](https://github.com/smallflowercat1995/clash-script-for-system/assets/144557489/b8543934-450e-46f3-8096-1b8cd63aea0b)
 
-2.转到 Actions -> update pyenv and pyenv-virtualenv 并且启动 workflow，实现自动化  
-3.这是包含了 pyenv 和 jupyter 两个部分的 docker 构建材料  
-4.主要目的是为了使用 jupyter 本来没想这么复杂，我就是觉得 pyenv 好，为了自己的追求，只能辛苦一下  
-5.这个应该是可以改成分段构建的项目，我觉得怕中间出错，不敢把他们写成分段式构建，以后有机会我在改  
-6.以下是思路：    
+2.赋予 actions[bot] 读/写仓库权限 -> Settings -> Actions -> General -> Workflow Permissions -> Read and write permissions -> save，如图所示
+![repository_authorized](https://github.com/smallflowercat1995/clash-script-for-system/assets/144557489/aa697028-66fb-499b-a0af-765061ed0edf)
+
+3.转到 Actions -> update pyenv and pyenv-virtualenv 并且启动 workflow，实现自动化  
+4.这是包含了 pyenv 和 jupyter 两个部分的 docker 构建材料  
+5.主要目的是为了使用 jupyter 本来没想这么复杂，我就是觉得 pyenv 好，为了自己的追求，只能辛苦一下  
+6.这个应该是可以改成分段构建的项目，我觉得怕中间出错，不敢把他们写成分段式构建，以后有机会我在改  
+7.以下是思路：    
   * 先构建 pyenv 配置最新的 python 环境并打包复制到 jupyter 环境目录，最后终止容器，实在太慢，我都哭了 >_<  
   * 然后在 jupyter 环境将 pyenv 包解压配置环境变量安装 jupyter 然后维持其运行，这样容器就不会自己停止   
 
-7.目录结构：  
+8.目录结构：  
 
     .  
     ├── build-pyenv                                  # 这个是构建 pyenv 并将其打包到 jupyter 环境目录  
@@ -82,6 +85,10 @@
     # 将在线克隆的方式注释了，太卡了，卡哭我了，哭了一晚上 >_< 呜呜呜
     # actions 自动获取 pyenv pyenv-virtualenv openjdk 和 python预编译包
     # update.sh 脚本拆分 openjdk 包
+    # 一些孩子总问我如何配置，我是不胜其扰啊，所以附上图片，你们老哥我年纪已经很大了求放过，呜呜呜，修改了描述文件，提供详细的描述，方便他人，呜呜，我真善良
+
+# 声明
+本项目仅作学习交流使用，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
 
 ## 感谢
 jupyter 官网：https://jupyter.org/install    
