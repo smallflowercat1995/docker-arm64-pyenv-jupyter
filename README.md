@@ -4,10 +4,10 @@
 最终镜像：<a href="https://hub.docker.com/r/smallflowercat1995/debian-jupyter" target="_blank">https://hub.docker.com/r/smallflowercat1995/debian-jupyter</a>  
 ## 描述
 1.为了实现 actions workflow 自动化更新 pyenv 源码，需要添加 `GITHUB_TOKEN` 环境变量，这个是访问 GitHub API 的令牌，可以在 GitHub 主页，点击个人头像，Settings -> Developer settings -> Personal access tokens ，设置名字为 GITHUB_TOKEN 接着要勾选权限，勾选repo、admin:repo_hook和workflow即可，最后点击Generate token，如图所示  
-![account_token](https://github.com/smallflowercat1995/clash-script-for-system/assets/144557489/b8543934-450e-46f3-8096-1b8cd63aea0b)
+![account_token](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/dfd8ad11-234c-4222-8af3-7fa8daf7f5b3)
 
 2.赋予 actions[bot] 读/写仓库权限 -> Settings -> Actions -> General -> Workflow Permissions -> Read and write permissions -> save，如图所示
-![repository_authorized](https://github.com/smallflowercat1995/clash-script-for-system/assets/144557489/aa697028-66fb-499b-a0af-765061ed0edf)
+![repository_authorized](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/a07265e9-ebe7-4a9c-a38c-888aa1195d02)
 
 3.转到 Actions -> update pyenv and pyenv-virtualenv 并且启动 workflow，实现自动化  
 4.这是包含了 pyenv 和 jupyter 两个部分的 docker 构建材料  
