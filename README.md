@@ -4,7 +4,8 @@
 最终镜像：<a href="https://hub.docker.com/r/smallflowercat1995/debian-jupyter" target="_blank">https://hub.docker.com/r/smallflowercat1995/debian-jupyter</a>  
 ## 描述
 1.为了实现 actions workflow 自动化更新 pyenv 源码，需要添加 `GITHUB_TOKEN` 环境变量，这个是访问 GitHub API 的令牌，可以在 GitHub 主页，点击个人头像，Settings -> Developer settings -> Personal access tokens ，设置名字为 GITHUB_TOKEN 接着要勾选权限，勾选repo、admin:repo_hook和workflow即可，最后点击Generate token，如图所示  
-![image](https://user-images.githubusercontent.com/94947393/190651403-4bae4d58-1c90-401c-a390-3dc96c186c03.png)  
+<img width="783" alt="截屏2023-09-10 02 05 43" src="https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/6c56921f-edc8-4f81-acfa-c70d2a790441">
+
 2.转到 Actions -> update pyenv and pyenv-virtualenv 并且启动 workflow，实现自动化  
 3.这是包含了 pyenv 和 jupyter 两个部分的 docker 构建材料  
 4.主要目的是为了使用 jupyter 本来没想这么复杂，我就是觉得 pyenv 好，为了自己的追求，只能辛苦一下  
@@ -72,8 +73,10 @@
     # 首先访问 http://[主机IP]:8888 输入默认密码 123456
     # 然后如图打开终端 在终端内执行密码修改指令 需输入两次 密码不会显示属于正常现象 密码配置文件会保存到容器内的 $HOME/.jupyter/jupyter_server_config.json 
     jupyter-lab password
-   <img src="https://user-images.githubusercontent.com/94947393/179494632-fccd5e68-6d44-440c-b56d-82e8813c837d.png" title="打开终端" alt="打开终端" style="zoom: 50%;" />
-   <img src="https://user-images.githubusercontent.com/94947393/179495057-b3a2148c-3abe-401f-98c7-647cd6521141.png" title="密码修改指令" alt="密码修改指令" style="zoom: 50%;" />
+   ![dapj0](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/672b5a13-6303-4503-be19-c9118d3f345c)
+   ![dapj1](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/802b1f24-db3d-4fb9-bc0c-9b3005b17353)
+
+   
 
 ## 修改新增
     # 将在线克隆的方式注释了，太卡了，卡哭我了，哭了一晚上 >_< 呜呜呜
