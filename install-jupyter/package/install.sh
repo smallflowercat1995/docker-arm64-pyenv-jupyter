@@ -238,6 +238,18 @@ source $HOME/.profile
 source $HOME/.bashrc
 }
 
+# 安装 ijava 支持 java 编译
+ijava_install(){
+# ijava github: https://github.com/SpencerPark/IJava
+# wget --verbose --show-progress=on --progress=bar --hsts-file=/tmp/wget-hsts -c "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O /tmp/ijava-1.3.0.zip
+
+mv -fv $HOME/ijava-1.3.0.zip /tmp/ijava-1.3.0.zip
+unzip -o -d /tmp/ijava /tmp/ijava-1.3.0.zip
+cd /tmp/ijava
+python install.py --sys-prefix
+}
+
+
 # 安装 jupyter
 jupyter_install(){
 # 创建软链接
@@ -321,17 +333,6 @@ mv -fv  $HOME/.jupyter $HOME/.jupyter.backup
 }
 
 
-# 安装 ijava 支持 java 编译
-ijava_install(){
-# ijava github: https://github.com/SpencerPark/IJava
-# wget --verbose --show-progress=on --progress=bar --hsts-file=/tmp/wget-hsts -c "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O /tmp/ijava-1.3.0.zip
-
-mv -fv $HOME/ijava-1.3.0.zip /tmp/ijava-1.3.0.zip
-unzip -o -d /tmp/ijava /tmp/ijava-1.3.0.zip
-cd /tmp/ijava
-python install.py --sys-prefix
-
-}
 
 clean_remove(){
 # 修改sh软链接
