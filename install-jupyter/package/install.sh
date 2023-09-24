@@ -275,7 +275,7 @@ then
     then
         pip --no-cache-dir install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install notebook -i https://pypi.tuna.tsinghua.edu.cn/simple
+        pip --no-cache-dir install notebook==6.5.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install voila -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install ipywidgets -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install qtconsole -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -285,7 +285,7 @@ then
     else
         pip --no-cache-dir install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install notebook -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
+        pip --no-cache-dir install notebook==6.5.5 -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install voila -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install ipywidgets -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install qtconsole -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
@@ -304,6 +304,9 @@ echo y | jupyter-notebook --generate-config --allow-root
 jupyter --version
 
 ijava_install
+
+# 尝试安装扩展支持跳过检查
+jupyter contrib nbextension install --user --skip-running-check
 
 # 写入默认密码，123456
 cat << EOF | tee $HOME/.jupyter/jupyter_server_config.json

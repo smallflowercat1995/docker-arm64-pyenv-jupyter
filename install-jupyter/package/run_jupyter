@@ -7,7 +7,5 @@ if ! [ -f $HOME/.jupyter/jupyter_server_config.json ]; then
     echo '文件找不到!从备份文件替换密码文件，密码123456'
     mkdir -pv $HOME/.jupyter
     cp -fv $HOME/.jupyter.backup/jupyter_server_config.json $HOME/.jupyter/jupyter_server_config.json
-    # 尝试安装扩展支持跳过检查
-    jupyter contrib nbextension install --user --skip-running-check
 fi
 jupyter-lab --allow-root --no-browser --notebook-dir=/notebook --ip=0.0.0.0 --port=8888
