@@ -90,7 +90,7 @@ sed -i 's;http;https;g' /etc/apt/sources.list
 eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y update
 
 # 安装一些工具和 pyenv python 必备依赖
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc libsqlite3-dev locales
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc libsqlite3-dev locales unzip
 
 }
 
@@ -243,8 +243,8 @@ ijava_install(){
 # ijava github: https://github.com/SpencerPark/IJava
 # wget --verbose --show-progress=on --progress=bar --hsts-file=/tmp/wget-hsts -c "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -O /tmp/ijava-1.3.0.zip
 
-mv -fv $HOME/ijava-1.3.0.zip /tmp/ijava-1.3.0.zip
-unzip -o -d /tmp/ijava /tmp/ijava-1.3.0.zip
+mv -fv $HOME/ijava-1.3.0.zip /tmp/ijava.zip
+unzip -o -d /tmp/ijava /tmp/ijava.zip
 cd /tmp/ijava
 python install.py --sys-prefix
 }
@@ -320,11 +320,17 @@ ijava_install
 # 尝试安装扩展支持跳过检查
 jupyter contrib nbextension install --user --skip-running-check
 
-# 写入默认密码，123456
+# 生成配置文件
+jupyter-server --generate-config -y
+
+# 生成密码 123456
+PASSWORD=$(python -c "from notebook.auth import passwd; print(passwd('${PASSWORD}'))")
+
+# 写入默认密码
 cat << EOF | tee $HOME/.jupyter/jupyter_server_config.json
 {
-  "NotebookApp": {
-    "password": "argon2:\$argon2id\$v=19\$m=10240,t=10,p=8\$qp6x6ELuV0Bu15X6LYcr2g\$6CqiFKcUpORa36b0xlNMIqxLueaY0W07+qHPbKD9988"
+  "IdentityProvider": {
+    "hashed_password": "$PASSWORD"
   }
 }
 EOF
