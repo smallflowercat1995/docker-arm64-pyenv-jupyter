@@ -13,7 +13,7 @@ rm -rfv build-pyenv/package/Python-*.tar.xz
 curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://www.python.org/ftp/python/${python_version}/Python-${python_version}.tar.xz"  -o build-pyenv/package/Python-${python_version}.tar.xz -O
 
 # 下载 aarch64 openjdk 
-curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8%2B7/OpenJDK17U-jdk_aarch64_linux_hotspot_17.0.8_7.tar.gz" -o install-jupyter/package/OpenJDK-jdk_linux_hotspot.tar.gz -O
+curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com/adoptium/temurin20-binaries/releases/download/jdk-20.0.2%2B9/OpenJDK20U-jdk_aarch64_linux_hotspot_20.0.2_9.tar.gz" -o install-jupyter/package/OpenJDK-jdk_linux_hotspot.tar.gz -O
 
 # 下载 jupyter 扩展 ijava 支持java语言环境
 curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip" -o install-jupyter/package/ijava-1.3.0.zip -O
