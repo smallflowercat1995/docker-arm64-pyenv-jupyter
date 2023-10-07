@@ -8,7 +8,8 @@ curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H
 curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv-virtualenv/releases' | sed 's;";\n;g;s;releases/tag;archive/refs/tags;g' | grep '/tags/' | head -n 1`.tar.gz" -o build-pyenv/package/pyenv-virtualenv.tar.gz -O
 
 # 下载预编译 python 包
-python_version=3.11.5
+python_version=3.12.0
+rm -rfv build-pyenv/package/Python-*.tar.xz
 curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://www.python.org/ftp/python/${python_version}/Python-${python_version}.tar.xz"  -o build-pyenv/package/Python-${python_version}.tar.xz -O
 
 # 下载 aarch64 openjdk 
