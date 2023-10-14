@@ -1,4 +1,4 @@
-FROM debian:11
+FROM arm64v8/debian:11
 
 ADD package /root/
 
