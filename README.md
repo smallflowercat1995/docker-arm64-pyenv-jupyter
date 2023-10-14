@@ -26,8 +26,7 @@
     │   └── package                                  # 这个是构建 pyenv 的脚本文件所在目录   
     │       ├── install.sh                           # 这个是构建 pyenv 镜像的时候在容器内执行流程的脚本    
     │       ├── pyenv.tar.gz                         # 这个是 pyenv 官方源码包  
-    │       ├── pyenv-virtualenv.tar.gz              # 这个是 pyenv-virtualenv 官方源码包  
-    │       ├── Python-?.tar.xz                      # 这个是 python-*.tar.gz 官方python编译包  
+    │       ├── pyenv-virtualenv.tar.gz              # 这个是 pyenv-virtualenv 官方源码包   
     │       └── run_build                            # 这个是构建 pyenv 完成时最终会执行的打包拷贝脚本  
     ├── install-jupyter
     │   ├── docker-compose.yml                       # 这个是构建 jupyter 的 docker-compose.yml 配置文件，默认端口 8888  
@@ -38,6 +37,7 @@
     │       ├── OpenJDK-jdk_linux_hotspot.tar.gz.01  # 这个是构建 jupyter OpenJDK-jdk_linux_hotspot.tar.gz.01 拆分包  
     │       ├── OpenJDK-jdk_linux_hotspot.tar.gz.02  # 这个是构建 jupyter OpenJDK-jdk_linux_hotspot.tar.gz.02 拆分包  
     │       ├── OpenJDK-jdk_linux_hotspot.tar.gz.03  # 这个是构建 jupyter OpenJDK-jdk_linux_hotspot.tar.gz.03 拆分包  
+    │       ├── OpenJDK-jdk_linux_hotspot.tar.gz.04  # 这个是构建 jupyter OpenJDK-jdk_linux_hotspot.tar.gz.04 拆分包
     │       ├── ijava-1.3.0.zip                      # 这个是构建 jupyter ijava-1.3.0.zip java支持扩展包  
     │       └── run_jupyter                          # 这个是启动 jupyter 的脚本    
     └── update.sh                                    # 这个是 actions 所需要的自动更新 pyenv pyenv-virtualenv openjdk 和 python预编译包 脚本  
@@ -79,12 +79,13 @@
    ![dapj0](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/672b5a13-6303-4503-be19-c9118d3f345c)
    ![dapj1](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/802b1f24-db3d-4fb9-bc0c-9b3005b17353)
 
-   
-
 ## 修改新增
     # 将在线克隆的方式注释了，太卡了，卡哭我了，哭了一晚上 >_< 呜呜呜
     # actions 自动获取 pyenv pyenv-virtualenv openjdk 和 python预编译包
     # update.sh 脚本拆分 openjdk 包
+    # 已经将树莓派4B卖了，性能还是不够用
+    # 可是项目不管也不行，索性用 github 自带 action 构建镜像提交到 hub.docker.com 仓库即时更新镜像
+    # 切换离线安装为在线更新最新版 python 源码
     # 一些孩子总问我如何配置，我是不胜其扰啊，所以附上图片，你们老哥我年纪已经很大了求放过，呜呜呜，修改了描述文件，提供详细的描述，方便他人，呜呜，我真善良
 
 # 声明
