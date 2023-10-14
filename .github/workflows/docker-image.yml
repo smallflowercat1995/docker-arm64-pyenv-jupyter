@@ -37,8 +37,7 @@ jobs:
       id: debian-pyenv
       uses: docker/build-push-action@v3
       with:
-        file: /home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/build-pyenv
-        context: .
+        context: /home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/build-pyenv
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
         platforms: linux/arm64
@@ -63,8 +62,7 @@ jobs:
       id: debian-jupyter
       uses: docker/build-push-action@v3
       with:
-        file: /home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/install-jupyter
-        context: .
+        context: /home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/install-jupyter
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/debian-jupyter:latest
         platforms: linux/arm64
