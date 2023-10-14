@@ -90,7 +90,7 @@ sed -i 's;http;https;g' /etc/apt/sources.list
 eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y update
 
 # 安装一些工具和 pyenv python 必备依赖
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc libsqlite3-dev locales unzip
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc build-essential libsqlite3-dev locales unzip
 
 }
 
