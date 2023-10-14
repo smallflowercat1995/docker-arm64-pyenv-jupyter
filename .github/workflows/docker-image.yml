@@ -44,7 +44,7 @@ jobs:
 
     - name: Run Docker Image
       run: |
-        docker run -v '/home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/install-jupyter/package:/root/export_tar_gz' ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
+        docker run --platform linux/arm64 -v '/home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/install-jupyter/package:/root/export_tar_gz' ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
   
     - name: Build and push
       id: debian-jupyter
