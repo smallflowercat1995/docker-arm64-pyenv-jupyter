@@ -9,15 +9,23 @@
 2.赋予 actions[bot] 读/写仓库权限 -> Settings -> Actions -> General -> Workflow Permissions -> Read and write permissions -> save，如图所示
 ![repository_authorized](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/a07265e9-ebe7-4a9c-a38c-888aa1195d02)
 
-3.转到 Actions -> update pyenv and pyenv-virtualenv 并且启动 workflow，实现自动化  
-4.这是包含了 pyenv 和 jupyter 两个部分的 docker 构建材料  
-5.主要目的是为了使用 jupyter 本来没想这么复杂，我就是觉得 pyenv 好，为了自己的追求，只能辛苦一下  
-6.这个应该是可以改成分段构建的项目，我觉得怕中间出错，不敢把他们写成分段式构建，以后有机会我在改  
-7.以下是思路：    
+3.添加 hub.docker.com 仓库账号 DOCKER_USERNAME 在 GitHub 仓库页 -> Settings -> Secrets -> actions -> New repository secret
+
+4.添加 hub.docker.com 仓库密码 DOCKER_PASSWORD 在 GitHub 仓库页 -> Settings -> Secrets -> actions -> New repository secret
+
+5.以上流程如图所示  
+![266819718-68c2268d-739c-444a-b88a-b7bfff18f3c0](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/9397d43a-ac26-4833-98a3-8034c9b0e706)
+
+
+6.转到 Actions -> update pyenv and pyenv-virtualenv 并且启动 workflow，实现自动化  
+7.这是包含了 pyenv 和 jupyter 两个部分的 docker 构建材料  
+8.主要目的是为了使用 jupyter 本来没想这么复杂，我就是觉得 pyenv 好，为了自己的追求，只能辛苦一下  
+9.这个应该是可以改成分段构建的项目，我觉得怕中间出错，不敢把他们写成分段式构建，以后有机会我在改  
+10.以下是思路：    
   * 先构建 pyenv 配置最新的 python 环境并打包复制到 jupyter 环境目录，最后终止容器，实在太慢，我都哭了 >_<  
   * 然后在 jupyter 环境将 pyenv 包解压配置环境变量安装 jupyter 然后维持其运行，这样容器就不会自己停止   
 
-8.目录结构：  
+11.目录结构：  
 
     .  
     ├── build-pyenv                                  # 这个是构建 pyenv 并将其打包到 jupyter 环境目录  
