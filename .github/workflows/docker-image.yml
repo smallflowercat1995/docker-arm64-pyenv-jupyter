@@ -23,10 +23,6 @@ jobs:
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
-    - name: 检查当前路径
-      run: |
-        pwd
-        ls -al
       
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -41,7 +37,7 @@ jobs:
       id: debian-pyenv
       uses: docker/build-push-action@v3
       with:
-        file: build-pyenv
+        file: /home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/build-pyenv
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
@@ -49,7 +45,7 @@ jobs:
 
     - name: Run Docker Image
       run: |
-        docker run -v '../install-jupyter/package:/root/export_tar_gz' ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
+        docker run -v '/home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/install-jupyter/package:/root/export_tar_gz' ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
   
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
@@ -67,7 +63,7 @@ jobs:
       id: debian-jupyter
       uses: docker/build-push-action@v3
       with:
-        file: install-jupyter
+        file: /home/runner/work/docker-arm64-pyenv-jupyter/docker-arm64-pyenv-jupyter/install-jupyter
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/debian-jupyter:latest
