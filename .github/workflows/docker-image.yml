@@ -21,11 +21,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    # Runs a set of commands using the runners shell
-    - name: 进入 build-pyenv 目录
-      run: |
-        cd build-pyenv
-
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
@@ -42,6 +37,7 @@ jobs:
       id: debian-pyenv
       uses: docker/build-push-action@v3
       with:
+        file: build-pyenv
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
@@ -50,12 +46,7 @@ jobs:
     - name: Run Docker Image
       run: |
         docker run -v '../install-jupyter/package:/root/export_tar_gz' ${{ secrets.DOCKER_USERNAME }}/debian-pyenv:latest
-        
-    # Runs a set of commands using the runners shell
-    - name: 进入 install-jupyter 目录
-      run: |
-        cd ../install-jupyter/
-
+  
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
@@ -72,6 +63,7 @@ jobs:
       id: debian-jupyter
       uses: docker/build-push-action@v3
       with:
+        file: install-jupyter
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/debian-jupyter:latest
