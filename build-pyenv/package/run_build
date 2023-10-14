@@ -9,12 +9,12 @@ pyenv_install(){
 # 安装最新版 python 配置自定义虚拟环境
 pyenv versions | sed 's;*;;g;s;/; ;g;s; ;;g' | grep -oE '^[0-9]*\.?[0-9]*\.?[0-9]*?$' | awk '{print $1}' | xargs pyenv uninstall -f
 # 在线下载安装最新版 python 配置自定义虚拟环境
-# pyenv install -v `pyenv install --list | sed 's; ;;g' | grep -oE '^[0-9]*\.?[0-9]*\.?[0-9]*?$' | tail -n 1`
+pyenv install -v $(pyenv install --list | grep -Eo '^[[:space:]]*([0-9]+\.[0-9]+\.[0-9]+)$' | tail -1)
 
 # 离线编译安装测试
-cd $HOME/.pyenv/cache/
-python_version=$(echo Python-*.tar.xz | sed -n 's/[^0-9]*\([0-9.]*\)\..*/\1/p')
-pyenv install -v ${python_version}
+# cd $HOME/.pyenv/cache/
+# python_version=$(echo Python-*.tar.xz | sed -n 's/[^0-9]*\([0-9.]*\)\..*/\1/p')
+# pyenv install -v ${python_version}
 
 pyenv rehash
 pyenv version
