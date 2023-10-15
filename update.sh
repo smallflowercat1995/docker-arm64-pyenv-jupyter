@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # 失效了？
 # curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv/releases' | grep '.tar.gz' | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -o build-pyenv/package/pyenv.tar.gz -O
-curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv/releases' | sed 's;";\n;g;s;releases/tag;archive/refs/tags;g' | grep '/tags/' | head -n 1`.tar.gz" -o build-pyenv/package/pyenv.tar.gz -O
+# curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv/releases' | sed 's;";\n;g;s;releases/tag;archive/refs/tags;g' | grep '/tags/' | head -n 1`.tar.gz" -o build-pyenv/package/pyenv.tar.gz -O
 
 # 失效了？
 # curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv-virtualenv/releases' | grep '.tar.gz' | sed 's;";  ;g' | awk '{print $3}' | head -n 1`" -o build-pyenv/package/pyenv-virtualenv.tar.gz -O
-curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv-virtualenv/releases' | sed 's;";\n;g;s;releases/tag;archive/refs/tags;g' | grep '/tags/' | head -n 1`.tar.gz" -o build-pyenv/package/pyenv-virtualenv.tar.gz -O
+# curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k "https://github.com`curl -SL --connect-timeout 30 -m 60 --speed-time 30 --speed-limit 1 --retry 2 -H "Connection: keep-alive" -k 'https://github.com/pyenv/pyenv-virtualenv/releases' | sed 's;";\n;g;s;releases/tag;archive/refs/tags;g' | grep '/tags/' | head -n 1`.tar.gz" -o build-pyenv/package/pyenv-virtualenv.tar.gz -O
 
 # 下载预编译 python 包
 # python_version=3.12.0
