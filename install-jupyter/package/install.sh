@@ -35,12 +35,19 @@ apt update
 apt-get -y install apt-transport-https ca-certificates apt-utils eatmydata aptitude
 
 # 更新软件列表源
-                                                                            update
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install  update
 
 # 安装一些工具和 pyenv python 必备依赖
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc build-essential libsqlite3-dev \
-                                                                                 libzmq3-dev libevent-dev python-dev \
-                                                                                 locales unzip
+
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install  gcc make aria2 xz-utils \
+                                                                                  zlib1g-dev libbz2-dev libncurses-dev python-openssl \
+                                                                                  libffi-dev libreadline-dev libssl-dev llvm \
+                                                                                  liblzma-dev libgdbm-dev libgdbm-compat-dev git \
+                                                                                  libsqlite3-dev uuid-dev tk-dev libnss3-dev \
+                                                                                  build-essential libncurses5-dev libncursesw5-dev locales \
+                                                                                  unzip python-dev libevent-dev libzmq3-dev
+                                                                                  
+
 }
 
 
