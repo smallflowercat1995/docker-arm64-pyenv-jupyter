@@ -34,12 +34,14 @@ apt-get -y install apt-transport-https ca-certificates apt-utils eatmydata aptit
 eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y update
 
 # 安装一些工具和 pyenv python 必备依赖
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc make aria2
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install zlib1g-dev libbz2-dev libncurses-dev
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install libffi-dev libreadline-dev libssl-dev
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install liblzma-dev libgdbm-dev libgdbm-compat-dev
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install libsqlite3-dev uuid-dev tk-dev
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install build-essential libncurses5-dev libnss3-dev
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install  gcc make aria2 \
+                                                                                  zlib1g-dev libbz2-dev libncurses-dev \
+                                                                                  libffi-dev libreadline-dev libssl-dev \
+                                                                                  liblzma-dev libgdbm-dev libgdbm-compat-dev \
+                                                                                  libsqlite3-dev uuid-dev tk-dev \
+                                                                                  build-essential libncurses5-dev libnss3-dev \
+                                                                                  git
+
 }
 
 install_pyenv(){
