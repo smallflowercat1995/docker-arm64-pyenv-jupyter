@@ -228,24 +228,24 @@ then
     if [[ ${ADDR[1]} -le 10 ]]
     then
         echo "python 版本 ${ADDR}"
-        pip --no-cache-dir install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install notebook==6.5.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install voila -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install ipywidgets -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install qtconsole -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install jupyter_contrib_nbextensions -i https://pypi.tuna.tsinghua.edu.cn/simple
-        pip --no-cache-dir install jupyter-console -i https://pypi.tuna.tsinghua.edu.cn/simple
+        pip --no-cache-dir install -U pip
+        pip --no-cache-dir install jupyterlab
+        pip --no-cache-dir install notebook==6.5.5
+        pip --no-cache-dir install voila
+        pip --no-cache-dir install ipywidgets
+        pip --no-cache-dir install qtconsole
+        pip --no-cache-dir install jupyter_contrib_nbextensions
+        pip --no-cache-dir install jupyter-console
     else
         echo "python 版本 ${ADDR}"
-        pip --no-cache-dir install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install notebook==6.5.5 -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install voila -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install ipywidgets -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install qtconsole -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install jupyter_contrib_nbextensions -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        pip --no-cache-dir install jupyter-console -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
+        pip --no-cache-dir install -U pip --break-system-packages
+        pip --no-cache-dir install jupyterlab --break-system-packages
+        pip --no-cache-dir install notebook==6.5.5 --break-system-packages
+        pip --no-cache-dir install voila --break-system-packages
+        pip --no-cache-dir install ipywidgets --break-system-packages
+        pip --no-cache-dir install qtconsole --break-system-packages
+        pip --no-cache-dir install jupyter_contrib_nbextensions --break-system-packages
+        pip --no-cache-dir install jupyter-console --break-system-packages
     fi
 else
     echo "超出版本预期，脚本需要更新！！"
