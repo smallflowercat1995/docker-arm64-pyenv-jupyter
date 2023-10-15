@@ -175,7 +175,6 @@ export PATH=\$PATH:\$JAVA_HOME/bin
 EOF
 
 source /etc/environment
-source $HOME/.zshrc
 source $HOME/.profile
 source $HOME/.bashrc
 
@@ -184,7 +183,6 @@ sed -i "s|export JAVA_HOME=/opt/jdk-.*|export JAVA_HOME=$(dirname $(whereis java
 sed -i "s|export JAVA_HOME=/opt/jdk-.*|export JAVA_HOME=$(dirname $(whereis java | awk '{print $2}') | sed 's;/bin;;g')|g" $HOME/.profile
 
 source /etc/environment
-source $HOME/.zshrc
 source $HOME/.profile
 source $HOME/.bashrc
 }
