@@ -35,12 +35,12 @@ apt update
 apt-get -y install apt-transport-https ca-certificates apt-utils eatmydata aptitude
 
 # 更新软件列表源
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y update
+                                                                            update
 
 # 安装一些工具和 pyenv python 必备依赖
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc build-essential libsqlite3-dev 
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install libzmq3-dev libevent-dev python-dev 
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install locales unzip
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install gcc build-essential libsqlite3-dev \
+                                                                                 libzmq3-dev libevent-dev python-dev \
+                                                                                 locales unzip
 }
 
 
