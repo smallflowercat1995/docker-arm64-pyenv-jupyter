@@ -286,6 +286,7 @@ then
     # 检查版本是否小于等于3.10
     if [[ ${ADDR[1]} -le 10 ]]
     then
+        echo "python 版本 ${ADDR}"
         pip --no-cache-dir install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install notebook==6.5.5 -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -294,8 +295,8 @@ then
         pip --no-cache-dir install qtconsole -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install jupyter_contrib_nbextensions -i https://pypi.tuna.tsinghua.edu.cn/simple
         pip --no-cache-dir install jupyter-console -i https://pypi.tuna.tsinghua.edu.cn/simple
-        echo "python 版本小于 3.10"
     else
+        echo "python 版本 ${ADDR}"
         pip --no-cache-dir install -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install jupyterlab -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install notebook==6.5.5 -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
@@ -304,7 +305,6 @@ then
         pip --no-cache-dir install qtconsole -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install jupyter_contrib_nbextensions -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
         pip --no-cache-dir install jupyter-console -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
-        echo "python 版本大于 3.11"
     fi
 else
     echo "超出版本预期，脚本需要更新！！"
