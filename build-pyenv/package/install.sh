@@ -39,7 +39,8 @@ eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install
                                                                                   libffi-dev libreadline-dev libssl-dev llvm \
                                                                                   liblzma-dev libgdbm-dev libgdbm-compat-dev git \
                                                                                   libsqlite3-dev uuid-dev tk-dev libnss3-dev \
-                                                                                  build-essential libncurses5-dev libncursesw5-dev 
+                                                                                  build-essential libncurses5-dev libncursesw5-dev python-dev \
+                                                                                  libevent-dev libzmq3-dev
 }
 
 install_pyenv(){
