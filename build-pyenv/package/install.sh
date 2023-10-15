@@ -5,14 +5,13 @@ export DEBIAN_FRONTEND=noninteractive
 
 echo -e "$DEBIAN_FRONTEND"
 
-mkdir_update_install(){
-mkdir -pv $HOME/.pyenv
+# 更新安装依赖
+update_install(){
 cp -rv /root/run_build /usr/bin/
 chmod -v u+x /usr/bin/run_build
 
 # 改时区
 date '+%Y-%m-%d %H:%M:%S'
-# cp -rv /etc/localtime /etc/localtime.bak.`date '+%Y-%m-%d_%H-%M-%S'`
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "Asia/Shanghai" > /etc/timezone
 date '+%Y-%m-%d %H:%M:%S'
@@ -96,7 +95,7 @@ rm -rfv $HOME/.pyenv/pyenv-* `pyenv root`/plugins/pyenv-virtualenv/pyenv-virtual
 echo '' > /root/.bash_history ; history -c ; history -p
 }
 
-mkdir_update_install
+update_install
 install_pyenv
 clean_remove
 
