@@ -35,7 +35,7 @@ apt update
 apt-get -y install apt-transport-https ca-certificates apt-utils eatmydata aptitude
 
 # 更新软件列表源
-eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y install  update
+eatmydata aptitude --without-recommends -o APT::Get::Fix-Missing=true -y update
 
 # 安装一些工具和 pyenv python 必备依赖
 
