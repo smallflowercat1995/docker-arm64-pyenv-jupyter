@@ -271,7 +271,8 @@ jupyter contrib nbextension install --user --skip-running-check
 jupyter-server --generate-config -y
 
 # 生成密码 123456
-PASSWORD=$(python -c "from notebook.auth import passwd; print(passwd('${PASSWORD}'))")
+#PASSWORD=$(python -c "from notebook.auth import passwd; print(passwd('${PASSWORD}'))")
+PASSWORD=argon2:$(python -c "from argon2 import PasswordHasher; print(PasswordHasher().hash('${PASSWORD}'))")
 
 # 写入默认密码
 cat << EOF | tee $HOME/.jupyter/jupyter_server_config.json
@@ -284,8 +285,6 @@ EOF
 
 mv -fv  $HOME/.jupyter $HOME/.jupyter.backup
 }
-
-
 
 clean_remove(){
 # 修改sh软链接
