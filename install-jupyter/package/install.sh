@@ -157,30 +157,22 @@ tar xvf /tmp/OpenJDK-jdk_linux_hotspot.tar.gz -C /opt/
 
 # 写入环境变量
 cat << EOF | tee -a /etc/environment
-export JAVA_HOME=/opt/jdk-*
+export JAVA_HOME=/opt/$(ls /opt/jdk-*)
 export CLASSPATH=.:\$JAVA_HOME/lib/tools.jar:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib
 export PATH=\$PATH:\$JAVA_HOME/bin
 EOF
 
 cat << EOF | tee -a $HOME/.bashrc
-export JAVA_HOME=/opt/jdk-*
+export JAVA_HOME=/opt/$(ls /opt/jdk-*)
 export CLASSPATH=.:\$JAVA_HOME/lib/tools.jar:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib
 export PATH=\$PATH:\$JAVA_HOME/bin
 EOF
 
 cat << EOF | tee -a $HOME/.profile
-export JAVA_HOME=/opt/jdk-*
+export JAVA_HOME=/opt/$(ls /opt/jdk-*)
 export CLASSPATH=.:\$JAVA_HOME/lib/tools.jar:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib
 export PATH=\$PATH:\$JAVA_HOME/bin
 EOF
-
-source /etc/environment
-source $HOME/.profile
-source $HOME/.bashrc
-
-sed -i "s|export JAVA_HOME=/opt/jdk-.*|export JAVA_HOME=$(dirname $(whereis java | awk '{print $2}') | sed 's;/bin;;g')|g" /etc/environment
-sed -i "s|export JAVA_HOME=/opt/jdk-.*|export JAVA_HOME=$(dirname $(whereis java | awk '{print $2}') | sed 's;/bin;;g')|g" $HOME/.bashrc
-sed -i "s|export JAVA_HOME=/opt/jdk-.*|export JAVA_HOME=$(dirname $(whereis java | awk '{print $2}') | sed 's;/bin;;g')|g" $HOME/.profile
 
 source /etc/environment
 source $HOME/.profile
