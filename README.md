@@ -2,6 +2,15 @@
 ## dockerhub
 第一部分镜像：<a href="https://hub.docker.com/r/smallflowercat1995/debian-pyenv" target="_blank">https://hub.docker.com/r/smallflowercat1995/debian-pyenv</a>  
 最终镜像：<a href="https://hub.docker.com/r/smallflowercat1995/debian-jupyter" target="_blank">https://hub.docker.com/r/smallflowercat1995/debian-jupyter</a>  
+[![GitHub Workflow update Status](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/actions/workflows/actions.yml/badge.svg)](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/actions/workflows/actions.yml)[![GitHub Workflow dockerbuild Status](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/actions/workflows/docker-image.yml/badge.svg)](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/actions/workflows/docker-image.yml)![Watchers](https://img.shields.io/github/watchers/smallflowercat1995/docker-arm64-pyenv-jupyter) ![Stars](https://img.shields.io/github/stars/smallflowercat1995/docker-arm64-pyenv-jupyter) ![Forks](https://img.shields.io/github/forks/smallflowercat1995/docker-arm64-pyenv-jupyter) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=smallflowercat1995.docker-arm64-pyenv-jupyter) ![LICENSE](https://img.shields.io/badge/license-CC%20BY--SA%204.0-green.svg)
+<a href="https://star-history.com/#smallflowercat1995/docker-arm64-pyenv-jupyter&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=smallflowercat1995/docker-arm64-pyenv-jupyter&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=smallflowercat1995/docker-arm64-pyenv-jupyter&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=smallflowercat1995/docker-arm64-pyenv-jupyter&type=Date" />
+  </picture>
+</a>
+
 ## 描述
 1.为了实现 actions workflow 自动化更新 pyenv 源码，需要添加 `GITHUB_TOKEN` 环境变量，这个是访问 GitHub API 的令牌，可以在 GitHub 主页，点击个人头像，Settings -> Developer settings -> Personal access tokens ，设置名字为 GITHUB_TOKEN 接着要勾选权限，勾选repo、admin:repo_hook和workflow即可，最后点击Generate token，如图所示  
 ![account_token](https://github.com/smallflowercat1995/docker-arm64-pyenv-jupyter/assets/144557489/dfd8ad11-234c-4222-8af3-7fa8daf7f5b3)
