@@ -1,0 +1,30 @@
+#!/bin/bash
+source /etc/environment
+source $HOME/.bashrc
+# 判断用户是否自定义了配置文件？
+if [ ! -f $HOME/.jupyter/jupyter_server_config.json ]; then
+    # 生成配置文件
+    jupyter-server --generate-config -y
+    
+    # 打印检查环境是否导入
+    # 不存在则赋值 PASSWORD 变量
+    if [[ -z "$PASSWORD" ]]; then
+        echo "set 'PASSWORD=123456' for jupyter"
+        export PASSWORD=123456
+    fi
+    # echo "$PASSWORD"
+    
+    # 生成密码
+    #PASSWORD=$(python -c "from notebook.auth import passwd; print(passwd('${PASSWORD}'))")
+    PASSWORD=argon2:$(python -c "from argon2 import PasswordHasher; print(PasswordHasher().hash('${PASSWORD}'))")
+
+# 写入默认密码
+cat << SMALLFLOWERCAT1995 | tee $HOME/.jupyter/jupyter_server_config.json
+{
+  "IdentityProvider": {
+    "hashed_password": "$PASSWORD"
+  }
+}
+SMALLFLOWERCAT1995
+fi
+jupyter-lab --allow-root --no-browser --notebook-dir=/notebook --ip=0.0.0.0 --port=8888

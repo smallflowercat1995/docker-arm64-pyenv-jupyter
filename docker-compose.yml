@@ -1,0 +1,31 @@
+services:
+  alpine-pyenv-jupyter-app:
+    build:
+      context: .
+    command:
+      - bash
+      - run_jupyter
+    platform: linux/arm64/v8
+    container_name: alpine-pyenv-jupyter-arm64v8-container
+    environment:
+      - PASSWORD=123456
+      #- http_proxy=http://IP:PORT
+      #- https_proxy=http://IP:PORT
+      #- all_proxy=socks5://IP:PORT
+    image: smallflowercat1995/alpine-pyenv-jupyter:arm64v8
+    #network_mode: bridge
+    networks:
+        - app_net
+    ports:
+      - "8888:8888"
+    privileged: true
+    restart: "always"
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+    volumes:
+      - $HOME/docker-container/notebook/:/notebook
+networks:
+  app_net:
+    driver: bridge

@@ -1,0 +1,11 @@
+jupyterlab
+notebook
+voila
+ipywidgets
+qtconsole
+jupyter_contrib_nbextensions
+jupyter-console
+requests
+bs4
+retrying
+httpx
